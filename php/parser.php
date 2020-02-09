@@ -1,33 +1,23 @@
-
 <?php
 
-//Read the file from "backend"
 $myfile = fopen("feed.txt", "r") or die("Unable to open file!");
 
-/*$feed = [];
-$i=0;
-while(!feof($myfile)) {
-    $feed[$i] = fgets($myfile);
-    $i++;
-
-}*/
 
 //Split the data to separate register number and value
-$parts = [];
+$split = [];
 $x = 0;
 while (! feof($myfile)){
-    $parts[$x] = (explode(":", fgets($myfile)));
+    $split[$x] = (explode(":", fgets($myfile)));
     $x++;
 }
-
-print_r($parts[0]);
+$date = fgets($myfile);
 
 // Prepare data for the datatable by creating a nested array and labeling the elements
 $data = array();
-for($i = 1;  $i < count($parts); $i++){
-    $y = $parts[$i][0];
+for($i = 1; $i < count($split); $i++){
+    $y = $split[$i][0];
     $unit = "";
-    if($y == 1 or $y == 2){
+    if($y == 1 or $y == 2){ // Add descriptions and some unit types
         $description = "Flow rate";
         $unit = "m3/h";
         }
@@ -171,18 +161,15 @@ for($i = 1;  $i < count($parts); $i++){
     elseif($y == 99 or $y == 100){
         $description = "Reynolds number";
     }
-
-
-
     else{
         $description = "None";
     }
+
+    // Create the final nested array containing the data
     $data[] = array(
-        'Register' =>$parts[$i][0], 'Value' => $parts[$i][1], 'Description' => $description, 'Unit' => $unit
+        'Register' =>$split[$i][0], 'Value' => $split[$i][1], 'Description' => $description, 'Unit' => $unit
     );
 }
-
-$date =
 
 // Send the data to frontend as JSON format
 $results = array(
@@ -190,13 +177,8 @@ $results = array(
 "iTotalRecords" => count($data),
 "iTotalDisplayRecords" => count($data),
 "aaData"=>$data,
-"date" => $parts[0]
 );
-/*while($row = $result->fetch_array(MYSQLI_ASSOC)){
-$results["data"][] = $row ;
-}*/
 
 echo json_encode($results);
 fclose($myfile);
 
-?>
