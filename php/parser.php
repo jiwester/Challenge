@@ -2,7 +2,6 @@
 
 $myfile = fopen("feed.txt", "r") or die("Unable to open file!");
 
-
 //Split the data to separate register number and value
 $split = [];
 $x = 0;
@@ -10,9 +9,8 @@ while (! feof($myfile)){
     $split[$x] = (explode(":", fgets($myfile)));
     $x++;
 }
-$date = fgets($myfile);
 
-// Prepare data for the datatable by creating a nested array and labeling the elements
+// Prepare data for the datatable by creating a nested array of objects
 $data = array();
 for($i = 1; $i < count($split); $i++){
     $y = $split[$i][0];

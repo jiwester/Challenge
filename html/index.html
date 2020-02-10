@@ -5,29 +5,53 @@
     <meta charset="utf-8">
     <!-- Responsive meta tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Gambit Challenge</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 
-    <link rel="stylesheet" href="/css/main.css">
     <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-
+    <link rel="stylesheet" type="text/css" href="https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
 
     <!-- jQuery -->
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-    <!-- DataTables -->
-    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <!-- DataTable -->
     <script type="text/javascript" class="init">
         $(document ).ready(function() {
             $('#example').dataTable({
                 responsive: true ,
-                "sAjaxSource": "parser.php",
+                data:[
+                    {"Register":"1","Value":"63647\r\n","Description":"Flow rate","Unit":"m3\/h"},
+                    {"Register":"2","Value":"15846\r\n","Description":"Flow rate","Unit":"m3\/h"},
+                    {"Register":"3","Value":"37438\r\n","Description":"Energy flow rate","Unit":"GJ\/h"},
+                    {"Register":"4","Value":"47954\r\n","Description":"Energy flow rate","Unit":"GJ\/h"},
+                    {"Register":"5","Value":"19407\r\n","Description":"Velocity","Unit":"m\/s"},
+                    {"Register":"6","Value":"15737\r\n","Description":"Velocity","Unit":"m\/s"},
+                    {"Register":"7","Value":"8874\r\n","Description":"Fluid sound speed","Unit":"m\/s"},
+                    {"Register":"8","Value":"17584\r\n","Description":"Fluid sound speed","Unit":"m\/s"},
+                    {"Register":"9","Value":"23\r\n","Description":"Positive accumulator","Unit":""},
+                    {"Register":"10","Value":"0\r\n","Description":"Positive accumulator","Unit":""},
+                    {"Register":"11","Value":"13971\r\n","Description":"Positive decimal fraction","Unit":""},
+                    {"Register":"12","Value":"16225\r\n","Description":"Positive decimal fraction","Unit":""},
+                    {"Register":"13","Value":"0\r\n","Description":"Negative accumulator","Unit":""},
+                    {"Register":"14","Value":"0\r\n","Description":"Negative accumulator","Unit":""},
+                    {"Register":"15","Value":"0\r\n","Description":"Negative decimal fraction","Unit":""},
+                    {"Register":"16","Value":"0\r\n","Description":"Negative decimal fraction","Unit":""},
+                    {"Register":"17","Value":"1989\r\n","Description":"Positive energy accumulator","Unit":""},
+                    {"Register":"18","Value":"0\r\n","Description":"Positive energy accumulator","Unit":""},
+                    {"Register":"19","Value":"57587\r\n","Description":"Positive energy decimal fraction","Unit":""},
+                    {"Register":"20","Value":"16174\r\n","Description":"Positive energy decimal fraction","Unit":""},
+                    {"Register":"21","Value":"64432\r\n","Description":"Negative energy accumulator","Unit":""},
+                    {"Register":"22","Value":"65535\r\n","Description":"Negative energy accumulator","Unit":""},
+                    {"Register":"23","Value":"8497\r\n","Description":"Negative energy decimal fraction","Unit":""},
+                    {"Register":"24","Value":"48788\r\n","Description":"Negative energy decimal fraction","Unit":""},
+                    {"Register":"25","Value":"0\r\n","Description":"Net accumulator","Unit":""},
+                ],
                 "aoColumns": [
                     { mData: 'Register' } ,
                     { mData: 'Value' },
@@ -37,6 +61,7 @@
             });
         });
     </script>
+
 </head>
 
 <body>
@@ -44,7 +69,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="font-size: 20px;">
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="#">TUF-2000M</a>
+            <a class="nav-link" href="http://www.tuf-2000.com/english/index.php">TUF-2000M</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="https://images-na.ssl-images-amazon.com/images/I/91CvZHsNYBL.pdf">Manual</a>
@@ -54,7 +79,6 @@
         </li>
     </ul>
 </nav>
-
 
 <div class="" style="width: 80%; margin: auto; font-size: 20px; padding-top: 20px">
     <table id="example" class="display" >
@@ -77,6 +101,5 @@
         </tfoot>
     </table>
 </div>
-
 </body>
 </html>
